@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 PROJECT(yaml_parser VERSION 0.0
                     DESCRIPTION "General purpose YAML parser"
