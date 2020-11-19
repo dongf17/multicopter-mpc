@@ -10,9 +10,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/yaml_parser/cmak
 set(CMAKE_INSTALL_PREFIX /usr/local)
 set(CMAKE_BUILD_TYPE RELEASE)
 
-set(LIBRARY_DESTINATION "lib")
-set(INCLUDE_DESTINATION "include")
-set(SHARE_DESTINATION "share/multicopter_mpc")
+set(LIBRARY_DESTINATION "${CMAKE_INSTALL_PREFIX}/lib")
+set(INCLUDE_DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
+set(SHARE_DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multicopter_mpc")
 
 enable_testing()
 
@@ -39,13 +39,13 @@ find_package(eigenpy REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(crocoddyl REQUIRED)
 find_package(YamlCpp REQUIRED)
-set(Python_ADDITIONAL_VERSIONS 3.6 3.7 3.8)
-find_package(Python3 REQUIRED Development Interpreter)
-set(WHICH_PYTHON3 "python3${Python3_VERSION_MINOR}")
-find_package(Boost COMPONENTS ${WHICH_PYTHON3} filesystem unit_test_framework REQUIRED)
+# set(Python_ADDITIONAL_VERSIONS 3.6 3.7 3.8)
+find_package(PythonInterp REQUIRED)
+find_package(PythonLibs REQUIRED)
+find_package(Boost COMPONENTS python filesystem unit_test_framework REQUIRED)
 
-SET(YAML_PARSER_LIB /usr/local/lib/libyaml_parser.so)
-SET(YAML_PARSER_INCLUDE_DIRS /usr/local/include/yaml_parser/)
+SET(YAML_PARSER_LIB ${CMAKE_INSTALL_PREFIX}/lib/libyaml_parser.so)
+SET(YAML_PARSER_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/yaml_parser/)
 SET(URDFDOM_LIB /usr/lib/x86_64-linux-gnu/liburdfdom_model.so)
 
 message(STATUS "Eigen library:" ${EIGEN3_INCLUDE_DIRS})
