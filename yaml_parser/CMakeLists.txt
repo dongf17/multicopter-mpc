@@ -7,7 +7,6 @@ PROJECT(yaml_parser VERSION 0.0
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D..")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
-set(CMAKE_INSTALL_PREFIX /usr/local)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 find_package(YamlCpp REQUIRED)
@@ -46,8 +45,7 @@ target_include_directories(yaml_parser PUBLIC ${INCLUDE_DIRS})
 target_link_libraries(yaml_parser PUBLIC ${LIBS})
 
 # Install
-install(TARGETS yaml_parser
-        LIBRARY DESTINATION lib)
+install(TARGETS yaml_parser LIBRARY DESTINATION lib)
 install(DIRECTORY include/yaml_parser DESTINATION include)
 # install(FILES "cmake/FindYamlCpp.cmake" DESTINATION "lib/cmake/YamlCpp")
 # install(FILES "cmake/FindYamlParser.cmake" DESTINATION "lib/cmake/${PROJECT_NAME}")
