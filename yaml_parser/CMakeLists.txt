@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.12)
 
 PROJECT(yaml_parser VERSION 0.0
                     DESCRIPTION "General purpose YAML parser"
@@ -12,10 +12,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 find_package(YamlCpp REQUIRED)
 find_package(Eigen3 3.3 REQUIRED)
-set(Python_ADDITIONAL_VERSIONS 3.6 3.7 3.8)
-find_package(Python3 REQUIRED Development Interpreter)
-set(WHICH_PYTHON3 "python3${Python3_VERSION_MINOR}")
-find_package(Boost COMPONENTS ${WHICH_PYTHON3} filesystem unit_test_framework REQUIRED)
+# set(Python_ADDITIONAL_VERSIONS 3.6 3.7 3.8)
+find_package(PythonInterp REQUIRED)
+find_package(PythonLibs REQUIRED)
+find_package(Boost COMPONENTS python filesystem unit_test_framework REQUIRED)
 message(STATUS "Eigen library:" ${EIGEN3_INCLUDE_DIRS})
 
 set(SOURCES
