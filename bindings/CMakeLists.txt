@@ -25,5 +25,5 @@ target_compile_options(${PROJECT_NAME}_pywrap PRIVATE "-Wno-conversion")
 install(TARGETS ${PROJECT_NAME}_pywrap
         LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/multicopter_mpc)
 install(DIRECTORY python/multicopter_mpc/utils DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/multicopter_mpc FILES_MATCHING PATTERN "*.py")
-install(FILES python/multicopter_mpc/__init__.py DESTINATION ${CMAKE_INSTALL_PREFIX}/python2.7/dist-packages/multicopter_mpc)
+install(FILES python/multicopter_mpc/__init__.py DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/multicopter_mpc)
 install(FILES ${MULTICOPTER_MPC_CONFIG_DIR}/path.py DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/multicopter_mpc/utils)
