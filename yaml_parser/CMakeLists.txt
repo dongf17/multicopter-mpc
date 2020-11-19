@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 PROJECT(yaml_parser VERSION 0.0
                     DESCRIPTION "General purpose YAML parser"
@@ -7,7 +7,6 @@ PROJECT(yaml_parser VERSION 0.0
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D..")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
-set(CMAKE_INSTALL_PREFIX /usr/local)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 find_package(YamlCpp REQUIRED)
